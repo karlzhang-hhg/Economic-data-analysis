@@ -1,5 +1,5 @@
 function val = logmlikelih(lam,X,Y,d_psi,d_phi,b_hat,M,T,d)
-% Calculate the log marginal likelihood
+%% Calculate the log marginal likelihood
 % Input:
 % lam: lambda value which we are optimizing in terms of
 % X: matrix X in time series (lag);
@@ -11,6 +11,7 @@ function val = logmlikelih(lam,X,Y,d_psi,d_phi,b_hat,M,T,d)
 % d: some constant specified in prior
 % Output:
 % val: the log marginal likelihood up to adding a constant
+%%==========================================================================
 tempm1 = X*diag(d_phi.^0.5);    
 eig1 = eig(tempm1'*tempm1);
 B_hat = (lam^2*(X'*X)+diag(d_phi.^(-1)))\(lam^2*X'*Y + diag(d_phi.^(-1))*b_hat);

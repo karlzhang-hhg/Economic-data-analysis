@@ -11,7 +11,7 @@ lgcomra = y(:,4)-y(:,1);%log-consumption ratio
 
 p = 5;
 N = size(y,1);
-T = N-p;%Initial time horizon for forecasting
+T = N-p;%Initial time horizon for forecasting (Use the entire data set)
 M = 7;
 K = M*p+1;
 h = 0;%The maximum horizon of out-of-sample forecast
@@ -50,7 +50,7 @@ box on;
 %title('Prejected v.s. real data');
 
 annotation('textbox', [0 0.9 1 0.1], ...
-    'String', 'Prejected v.s. real data for different priors', ...
+    'String', 'Projected v.s. real data for different priors', ...
     'EdgeColor', 'none', ...
     'HorizontalAlignment', 'center')
 
