@@ -1,0 +1,1072 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[utf8]{inputenc} % Any characters can be typed directly from the keyboard, eg éçñ
+\usepackage{textcomp} % provide lots of new symbols
+\usepackage{graphicx}  % Add graphics capabilities
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}  % Don't place floats before their definition
+%\usepackage{topcapt}   % Define \topcation for placing captions above tables (not in gwTeX)
+%\usepackage{natbib} % use author/date bibliographic citations %May conflict with some bibliography style download somewhere
+
+
+\usepackage{amsmath,amssymb}  % Better maths support & more symbols
+\usepackage{bm}  % Define \bm{} to use bold math fonts
+
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}  % PDF hyperlinks, with coloured links
+%\definecolor{dullmagenta}{rgb}{0.4,0,0.4}   % #660066
+%\definecolor{darkblue}{rgb}{0,0,0.4}
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=dullmagenta,urlcolor=darkblue} % coloured links
+%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} % black links, for printed output
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+% \usepackage[activate]{pdfcprot}  % Turn on margin kerning (not in gwTeX)
+% \usepackage{pdfsync}  % enable tex source and pdf output syncronicity
+
+\usepackage{array}%for table width
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{caption}%Add captions to figures
+\usepackage[toc,page]{appendix}%Add appendix
+\usepackage{csvsimple}%Import csv file as a table
+\usepackage{float}%Force figures place (H)
+
+\usepackage{booktabs}%For \toprule \midrule \bottomrule
+
+\usepackage{multicol}%Create multicolumns in report
+\usepackage{wrapfig}%Insert floating elements into multicolumns in report
+\usepackage{float}%To use placement specifier H in float element of figure
+\usepackage{longtable}%required by longtabu
+\usepackage{tabu}%Build a table span several pages
+\usepackage{tabularx}%Control and adjust the width of columns in tabulars
+\usepackage{listings}%Include code into latex
+\usepackage{color}
+
+\usepackage{pgfplotstable}% Include excel file into latex
+
+\usepackage{tikz}%Package for drawing graphical models
+\usetikzlibrary{shapes, arrows, calc, positioning,matrix}
+\tikzset{
+data/.style={circle, draw, text centered, minimum height=3em ,minimum width = .5em, inner sep = 2pt},
+empty/.style={circle, text centered, minimum height=3em ,minimum width = .5em, inner sep = 2pt},
+}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}
+     {\parbox{\dimexpr\textwidth-4\fboxsep}{\centering #1#2#3}}
+\captionsetup[lstlisting]{format=listing}
+%\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\usepackage{enumerate}
+
+\usepackage{fancyvrb}%include a txt file into latex pdf
+
+\usepackage{seqsplit}
+\newcommand\foo[2]{%
+    \begin{minipage}{#1}
+    \seqsplit{#2}
+    \end{minipage}
+    }
+
+%newcommand
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsbsy}
+%\usepackage{bm}
+%\usepackage{fixmath}
+%\usepackage{makeidx}
+%\usepackage{graphicx}
+%
+%\usepackage{array}%for table width
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%
+%\usepackage{grffile}%avoid showing file name when including a file
+%\usepackage{verbatim}%include code as appendix
+%\usepackage[left=1in,right=1in,top=1in,bottom=0.8in]{geometry}
+%
+%\usepackage{array}
+%
+%\usepackage{pdfpages}%for including pdf of R-code
+%
+%\setlength\parindent{0pt}%noindent
+%
+%
+%
+%\DeclareMathOperator{\Tr}{Tr}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+
+\title{HW2-ECON-482}
+\author{Kungang Zhang}
+\date{November 14, 2016}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Prob 1:}
+\begin{enumerate}[(1)]
+\item
+The SVAR model is:
+\begin{align}
+A_0 y_t =& A_0 + A_1 y_{t-1}+\cdots+A_{p} y_{t-p} + \varepsilon \\
+y_t =& B_0 + B_1 y_{t-1}+\cdots+B_{p} y_{t-p} + A_0^{-1}\varepsilon
+\label{model:SVAR}
+\end{align}
+Use the posterior form to the the MAP for $ \beta$ and $ A_0$. The MAP for $ \beta$ is just:
+\begin{align}
+\hat{ B} =& (X^TX + \Omega ^{-1}) ^{-1} (X^T Y + \Omega ^{-1} \hat{b}) \nonumber \\
+=& ( \lambda^2 X^TX + \Phi ^{-1}) ^{-1} ( \lambda^2 X^T Y + \Phi ^{-1} \hat{b}) 
+\label{eqn:post_B}
+\end{align}
+where I used the notation, $ \Omega = \lambda^2 \Phi$, and $\hat{ \beta} = vec(\hat{B})$. The definition of $ \Phi$ can be found on the last homework.
+To get posterior mode of $A_0$, I need to maximize:
+\begin{align}
+p(A_0 | Y) \propto |A_0| ^{T+M} exp\left\{-\frac{1}{2} tr \left( \left( \hat{S} + \left( \hat{B} - \hat{b} \right)^T \Omega ^{-1} \left( \hat{B} - \hat{b} \right) \right)A_0^T A_0  \right) \right\}
+\label{eqn:post_A0}
+\end{align}
+To maximize it, first take a log and then use global maximization toolbox in Matlab. Denote $\hat{\hat{S}} =  \hat{S} + \left( \hat{B} - \hat{b} \right)^T \Omega ^{-1} \left( \hat{B} - \hat{b}\right)$. Se the initial guess for $a_0$ as the upper Cholesky decomposition of $\hat{\hat{S}}^T\hat{\hat{S}}$ with only free variables being chosen so that they can be nonzero. Use multi-starting points to achieve somewhat ``global" optimal. By experiments, I found that the impulse response functions w.r.t. the monetary policy shock can be different for $200$ and $1000$ multi-starts. The optimal $A_0$ is as shown below (use $2500$ multi-starts).
+
+\pgfplotstabletypeset[
+    col sep=comma,
+    string type,
+%    columns/Name/.style={column name=Name, column type={|l}},
+%    columns/Observed data/.style={column name=Observed data, column type={|c}},
+%    columns/Flat prior/.style={column name=Flat prior, column type={|c}},
+%    columns/Minnesota prior/.style={column name=Minnesota prior, column type={|c}},
+%    columns/SOC (1)/.style={column name=SOC (1), column type={|c}},
+%    columns/SOC (5)/.style={column name=SOC (5), column type={|c|}},
+    columns/0/.style={column type={|l}},
+    columns/1/.style={column type={l}},
+    columns/2/.style={column type={l}},
+    columns/3/.style={column type={l}},
+    columns/4/.style={column type={l}},
+    columns/5/.style={column type={l|}},
+    header=false,
+    every head row/.style={before row=\hline,after row=\hline},
+    every last row/.style={after row=\hline},
+    ]{Prob 1-A0_opt_mine.csv}
+    
+The mode of coefficient $B$ is as shown below.
+\pgfplotstabletypeset[
+    col sep=comma,
+    string type,
+%    columns/Name/.style={column name=Name, column type={|l}},
+%    columns/Observed data/.style={column name=Observed data, column type={|c}},
+%    columns/Flat prior/.style={column name=Flat prior, column type={|c}},
+%    columns/Minnesota prior/.style={column name=Minnesota prior, column type={|c}},
+%    columns/SOC (1)/.style={column name=SOC (1), column type={|c}},
+%    columns/SOC (5)/.style={column name=SOC (5), column type={|c|}},
+    columns/0/.style={column type={|l}},
+    columns/1/.style={column type={l}},
+    columns/2/.style={column type={l}},
+    columns/3/.style={column type={l}},
+    columns/4/.style={column type={l}},
+    columns/5/.style={column type={l|}},
+    header=false,
+    every head row/.style={before row=\hline,after row=\hline},
+    every last row/.style={after row=\hline},
+    begin table=\begin{longtable},
+    end table=\end{longtable},
+    ]{Prob 1-B_hat_mine.csv}
+
+%\begin{tabular}{| l | l | l | l | l | l |}
+%\csvreader{Prob 1-A0_opt_mine.csv)}{}
+%%{\\\hline\csvcoli&\csvcolii}
+%\end{tabular}
+%
+%\begin{tabular}{| l | l | l | l | l | l |}
+%\csvreader{Prob 1-B_hat_mine.csv)}{}
+%%{\\\hline\csvcoli&\csvcolii}
+%\end{tabular}
+
+\item
+Using companion form to construct impulse response functions.
+\begin{align}
+Z _{t} = \Psi + \Phi Z _{t-1} + G\xi
+\end{align}
+where 
+\begin{align}
+Z _{t} =& [y _{t}, y _{t-1}, \cdots, y _{t-p+1}] \\
+\Psi =& [B_0; 0 _{(p-1)M \times 1}] \\
+\Phi =& 
+ \begin{bmatrix}
+ B_1 & B_2 & B_3 &  \cdots & B_{p-1} & B_p \\
+ I_M & 0 & 0 &  \cdots & 0 & 0 \\
+ 0 & I_M & 0 &  \cdots & 0 & 0 \\
+ 0 & 0 & \ddots &  \cdots & 0 & 0 \\
+ 0 & 0 & 0 & \cdots & I_M & 0
+\end{bmatrix} \\
+G =&  \begin{bmatrix}
+ A_0^{-1} & 0 _{M \times (p-1)M} \\
+ 0 _{(p-1)M \times M} & 0 _{(p-1)M}
+\end{bmatrix} \\
+\xi =& [ \varepsilon; 0 _{(p-1)M \times 1}]
+\end{align}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 1-Error_Bands"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{The impulse response functions under monetary policy shock for projection horizon $48$. The comparison with figures in \cite{sims2006were} are very close.}
+\label{fig:IMF_errbd}
+\end{center}
+\end{figure}
+
+\item
+Here, we use Metropolis algorithm to sample the marginal posterior of $A_0$, and then for each sample we sample a coefficient $B$. In this way, we sample from full joint posterior of $A_0$ and $B$. The $90\%$ and $68\%$ error bands are given in Figure \ref{fig:IMF_errbd}. Figure \ref{fig:trace_plots} are trace plots of this MCMC ($C = 0.5$ and $NumSim = 1,000,000$; the accepting rate is around $0.2$).
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 1-Trace_plots"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{Trace plots for free variables in $A_0$.}
+\label{fig:trace_plots}
+\end{center}
+\end{figure}
+
+\item
+The monetary policy shock has been well identified because the these impulse response functions have tendency eventually going to zero. During simulation, we set a sign constraint to ensure that a positive monetary policy shock will result in immediate positive response of the federal funds rate.
+
+\item
+The variance decomposition is like following:
+\begin{align}
+VD _{i,j}(k) = \frac{\left[ \sum_{s = 0}^{s = k-1} \Phi^s G \tilde{D} G^T \Phi^{sT} \right] _{i,i}}{\left[ \sum_{s = 0}^{s = k-1} \Phi^s G D G^T \Phi^{sT} \right] _{i,i}}
+\end{align}
+where $\tilde{D}$ has the only nonzero entry $(j,j)$ equal to $1$ and $D$ is $M$ dimensional identity matrix. The portion of variance due to monetary policy shock is $0.133948456672977$.
+
+\end{enumerate}
+
+\section{Prob 2:}
+\begin{enumerate}[(1)]
+\item
+Replace \textit{the real GDP} with \textit{the employment-population ratio}. The procedure of calculating mode and error bands is repeated (Figure \ref{fig:err_bd_2-1}). 
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 2-1-Error_Bands"}.jpg}\\
+\includegraphics[width = 0.8\textwidth]{{"Prob 2-1-Trace_plots"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{IMF with error bands with \textit{the real GDP} replaced by \textit{the employment-population ratio}.}
+\label{fig:err_bd_2-1}
+\end{center}
+\end{figure}
+Results are approximately robust to these changes.
+
+\item
+Replace \textit{the real GDP} with \textit{the industrial production}. The procedure of calculating mode and error bands is repeated (Figure \ref{fig:err_bd_2-2}). 
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 2-2-Error_Bands"}.jpg}
+\includegraphics[width = 0.8\textwidth]{{"Prob 2-2-Trace_plots"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{IMF with error bands with \textit{the real GDP} replaced by \textit{the employment-population ratio}.}
+\label{fig:err_bd_2-2}
+\end{center}
+\end{figure}
+Results are not approximately robust to these changes.
+
+\item
+Replace \textit{the real GDP} with \textit{the industrial production}, and \textit{the M2 divisia monetary index} with \textit{the M2 money stock}. The procedure of calculating mode and error bands is repeated (Figure \ref{fig:err_bd_2-3}). 
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 2-3-Error_Bands"}.jpg}
+\includegraphics[width = 0.8\textwidth]{{"Prob 2-3-Trace_plots"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{IMF with error bands with \textit{the real GDP} replaced by \textit{the employment-population ratio}, and \textit{the M2 divisia monetary index} replaced by \textit{the M2 money stock}.}
+\label{fig:err_bd_2-3}
+\end{center}
+\end{figure}
+Results are approximately robust to these changes.
+
+\end{enumerate}
+
+\section{Prob 3:}
+\begin{enumerate}[(1)]
+\item
+Use extended periods of data from $1959:1$ to $2008:12$ excluding ZLB period. Repeat the previous procedure (Figure \ref{fig:err_bd_3-1}).
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 3-1-Error_Bands"}.jpg}
+\includegraphics[width = 0.8\textwidth]{{"Prob 3-1-Trace_plots"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{Use extended periods of data from $1959:1$ to $2008:12$ excluding ZLB period.}
+\label{fig:err_bd_3-1}
+\end{center}
+\end{figure}
+Results are not approximately robust to these changes.
+
+\item
+Use the entire extended periods of data from $1959:1$ to $2014:12$. Repeat the previous procedure (Figure \ref{fig:err_bd_3-2}).
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{{"Prob 3-2-Error_Bands"}.jpg}
+\includegraphics[width = 0.8\textwidth]{{"Prob 3-2-Trace_plots"}.jpg}
+\captionsetup{width=0.8\textwidth}
+\caption{Use the entire extended periods of data from $1959:1$ to $2014:12$.}
+\label{fig:err_bd_3-2}
+\end{center}
+\end{figure}
+Results are not approximately robust to these changes.
+\end{enumerate}
+
+
+
+
+\bibliographystyle{report.bst}
+\bibliography{ref.bib}
+
+\begin{appendices}
+\begin{lstlisting}[language=Matlab ,caption={\textit{prob1.m} solves problem 1.}, label={code:prob1}]
+clear();
+%Load the data set
+Dat = xlsread('SZdata.xlsx');
+Dat = Dat(:,2:7);
+%Set constants
+p = 13;%Maximum lag
+lam = 0.2;%Hyperparameter
+M = 6;%Dimension of vector
+T = size(Dat,1)-p;%Time for forcasting
+K = M*p+1;
+vc = 10^6;%First element in Minnesota prior
+mu = 1;
+Num = 500000;%Number of MCMC simulation
+C = 0.5;%Scaling parameter for the proposal distribution variation
+ir_t = 48;%Impulse response function horizon
+mp_shock = zeros(M,1);%Monetary policy shock
+mp_shock(M) = 1;
+multistarts = 2500;%Number of starts
+t_proj = 36;%Variance decomposition
+text = 'Prob 1-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{prob2.m}}, label={code:prob2}]
+clear();
+%Load the data set
+Dat_all = xlsread('SZdata.xlsx');
+Dat = Dat_all(:,[8,3:7]);
+%Set constants
+p = 13;%Maximum lag
+lam = 0.2;%Hyperparameter
+M = 6;%Dimension of vector
+T = size(Dat,1)-p;%Time for forcasting
+K = M*p+1;
+vc = 10^6;%First element in Minnesota prior
+mu = 1;
+Num = 500000;%Number of MCMC simulation
+C = 0.5;%Scaling parameter for the proposal distribution variation
+ir_t = 48;%Impulse response function horizon
+mp_shock = zeros(M,1);%Monetary policy shock
+mp_shock(M) = 1;
+multistarts = 2500;%Number of starts
+t_proj = 36;%Variance decomposition
+text = 'Prob 2-1-';
+% Replace GDP with employment-population ratio
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+% Replace GDP with industrial production
+Dat = Dat_all(:,[9,3:7]);
+text = 'Prob 2-2-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+% Replace GDP with industrial produciton, and M2 divisia monetary index
+% with M2 money stock
+Dat = Dat_all(:,[9,3:5,10,7]);
+text = 'Prob 2-3-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{prob3.m}}, label={code:prob3}]
+clear();
+%Load the data set
+Dat_all = xlsread('SZdataExtended.xlsx');
+Dat = Dat_all(:,2:7);
+%Set constants
+p = 13;%Maximum lag
+lam = 0.2;%Hyperparameter
+M = 6;%Dimension of vector
+T = size(Dat,1)-p;%Time for forcasting
+K = M*p+1;
+vc = 10^6;%First element in Minnesota prior
+mu = 1;
+Num = 500000;%Number of MCMC simulation
+C = 0.5;%Scaling parameter for the proposal distribution variation
+ir_t = 48;%Impulse response function horizon
+mp_shock = zeros(M,1);%Monetary policy shock
+mp_shock(M) = 1;
+multistarts = 2500;%Number of starts
+t_proj = 36;%Variance decomposition
+text = 'Prob 3-2-';
+% Use the entire data set
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+% Excluding ZLB period
+Dat = Dat_all(1:600,2:7);
+text = 'Prob 3-1-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{prob2.m}}, label={code:prob2}]
+clear();
+%Load the data set
+Dat = xlsread('SZdata.xlsx');
+Dat = Dat(:,[8,3:7]);
+%Set constants
+p = 13;%Maximum lag
+lam = 0.2;%Hyperparameter
+M = 6;%Dimension of vector
+T = size(Dat,1)-p;%Time for forcasting
+K = M*p+1;
+vc = 10^6;%First element in Minnesota prior
+mu = 1;
+Num = 500000;%Number of MCMC simulation
+C = 0.5;%Scaling parameter for the proposal distribution variation
+ir_t = 48;%Impulse response function horizon
+mp_shock = zeros(M,1);%Monetary policy shock
+mp_shock(M) = 1;
+multistarts = 2500;%Number of starts
+t_proj = 36;%Variance decomposition
+text = 'Prob 2-1-';
+% Replace GDP with employment-population ratio
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+% Replace GDP with industrial production
+Dat = Dat(:,[9,3:7]);
+text = 'Prob 2-2-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+% Replace GDP with industrial produciton, and M2 divisia monetary index
+% with M2 money stock
+Dat = Dat(:,[9,3:5,10,7]);
+text = 'Prob 2-3-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{prob3.m}}, label={code:prob3}]
+clear();
+%Load the data set
+Dat = xlsread('SZdataExtended.xlsx');
+Dat = Dat(:,2:7);
+%Set constants
+p = 13;%Maximum lag
+lam = 0.2;%Hyperparameter
+M = 6;%Dimension of vector
+T = size(Dat,1)-p;%Time for forcasting
+K = M*p+1;
+vc = 10^6;%First element in Minnesota prior
+mu = 1;
+Num = 500000;%Number of MCMC simulation
+C = 0.5;%Scaling parameter for the proposal distribution variation
+ir_t = 48;%Impulse response function horizon
+mp_shock = zeros(M,1);%Monetary policy shock
+mp_shock(M) = 1;
+multistarts = 2500;%Number of starts
+t_proj = 36;%Variance decomposition
+text = 'Prob 3-2-';
+% Use the entire data set
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+% Excluding ZLB period
+Dat = Dat(1:600,2:7);
+text = 'Prob 3-1-';
+IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text);
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{IMF\textunderscore Errbd.m} function calculates the mode of posteriors for $A_0$ and $B$. Then, use them calculate impulse response functions with error bands by empirical quantile from MCMC simulation.}, label={code:IMF_Errbd}]
+function IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text)
+
+%clear();
+%Load the data set
+% Dat = xlsread('SZdata.xlsx');
+% Dat = Dat(:,2:7);
+% %Set constants
+% p = 13;
+% lam = 0.2;
+% M = 6;
+% T = size(Dat,1)-p;
+% K = M*p+1;
+% vc = 10^6;
+% mu = 1;
+% Num = 100000;%Number of MCMC simulation
+% C = 0.6;%Scaling parameter for the proposal distribution variation
+% ir_t = 48;
+% mp_shock = zeros(M,1);
+% mp_shock(6) = 1;
+% multistarts = 2500;
+% t_proj = 36;
+%Create matrix of X and Y combining observations and dummy observations
+[X,Y] = createXY(Dat,p,T,M,K,mu);
+
+%Estimate elements of Omega
+omega_d = createOmega(Dat,p,T,M,K,vc,lam);
+
+%Estimate the MAP for B and constant for b_hat in prior
+b_hat = [zeros(M,1),eye(M,M*p)]';
+B_hat = ((X'*X)+diag(omega_d.^(-1)))\(X'*Y + diag(omega_d.^(-1))*b_hat);
+csvwrite([text,'B_hat_mine.csv'],B_hat);
+
+%% Optimize posterior for A_0
+func = @(a0)-logPostA0(a0,X,Y,omega_d/lam^2,b_hat,B_hat,M,T,lam);
+solver = 'fminunc';
+options = optimoptions(@fminunc,'Algorithm','quasi-newton','Display', 'off');
+%Solve once and obtain hessian matrix for the proposal distribution in
+%Metropolis alg
+a0_0 = initPoint(X,Y,B_hat,b_hat,omega_d);%a0_0 is a column vector
+[a0_init,post_val_init,exitflag,output_init,grad_init,Hessian]=...
+    fminunc(func,a0_0,options);
+
+%Use global optimization toolbox to find "global" optimial for the
+%posterior of A_0
+tic;
+filename = 'p1-1.csv';
+[a0_opt,manymin] = findGlobalOpt(func,solver,options,multistarts,a0_0,filename);
+A0_opt = vec2mat(a0_opt,M);
+csvwrite([text,'A0_opt_mine.csv'],A0_opt);
+toc;
+
+%% Construct Impulse Response Function
+% Monetary policy shock
+time_range = [1,ir_t];
+tic;
+%Sign constraint, so that the one positive monetary shock will result in
+%immediate decrease of the federal funds rate (R)
+imd_resp = A0_opt\mp_shock;
+sign_con = sign((imd_resp(M)));
+imf = sign_con*IMF(ir_t,M,p,A0_opt,B_hat,mp_shock,time_range);
+toc;
+h_errbd = figure();
+hold on;
+box on;
+annotation('textbox', [0 0.9 1 0.1], ...
+    'String', [text, 'Error bands of impulse response functions'], ...
+    'EdgeColor', 'none', ...
+    'HorizontalAlignment', 'center',...
+    'FontSize',20);
+legendinfo{1}=['Impulse response to Monetary Policy Shock'];
+handle(1) = plot_all_TS(imf,'-k',[time_range,-inf,inf]);
+%Check the results and they are close
+
+%% Metropolis algorithm and error bands
+%acceptance rate
+eps_hat = Y - X*B_hat;
+S_dhat = eps_hat'*eps_hat+(B_hat-b_hat)'/diag(omega_d)*(B_hat-b_hat);
+tic;
+[ar,trace_dat] = Metropolis_alg(Num,a0_0,C,Hessian,S_dhat,T,M,text);%Draw A0 from its marginal posterior distribution
+toc;
+imf_MCMC = zeros(ir_t,M,Num);%Store the IMF for each MCMC draw 
+tic;
+for i = 1:Num
+    A0_temp = vec2mat(trace_dat(i,:)',M);
+    inv_A0_temp = inv(A0_temp);
+    imd_resp = inv_A0_temp*mp_shock;%Sign constraint as before
+    sign_con = sign(imd_resp(M));
+    V_temp = kron(inv_A0_temp*inv_A0_temp',inv(X'*X+diag(omega_d.^(-1))));
+    B_new = reshape(mvnrnd(reshape(B_hat,K*M,1),V_temp),K,M);%Draw new B based on each draw of A0
+    imf_temp = sign_con*IMF(ir_t,M,p,A0_temp,B_new,mp_shock,time_range);%Calculate IMF for this sample of A0 and B
+    imf_MCMC(:,:,i) = imf_temp(:,2:end);
+end
+err_bd = quantile(imf_MCMC,[0.05,0.95,0.16,0.84],3);%Empirical quantile for each IMF
+legendinfo{2} = ['%5 error bound'];
+handle(2) = plot_all_TS([(1:ir_t)',err_bd(:,:,1)],'b-.',[time_range,-inf,inf]);
+legendinfo{3} = ['%95 error bound'];
+handle(3) = plot_all_TS([(1:ir_t)',err_bd(:,:,2)],'r-.',[time_range,-inf,inf]);
+legendinfo{4} = ['%16 error bound'];
+handle(4) = plot_all_TS([(1:ir_t)',err_bd(:,:,3)],'b.',[time_range,-inf,inf]);
+legendinfo{5} = ['%84 error bound'];
+handle(5) = plot_all_TS([(1:ir_t)',err_bd(:,:,4)],'r.',[time_range,-inf,inf]);
+legend(handle,legendinfo,'Location','northeast');
+toc;
+saveas(gca,[text,'Error_Bands'],'jpg');
+saveas(gca,[text,'Error_Bands'],'fig');
+close(gcf);
+
+%Trace plot
+tic;
+h_trace_plot = figure();
+hold on;
+box on;
+annotation('textbox', [0 0.9 1 0.1], ...
+    'String', [text,'Trace plots for free variables'], ...
+    'EdgeColor', 'none', ...
+    'HorizontalAlignment', 'center',...
+    'FontSize',20);
+handle1 = plot_trace(trace_dat,6,3,'b-');
+toc;
+saveas(gca,[text,'Trace_plots'],'jpg');
+saveas(gca,[text,'Trace_plots'],'fig');
+close(gcf);
+
+%% Variance Decomposition
+var_imf_mp = imf_var(M,p,A0_opt,B_hat,mp_shock,t_proj);
+var_imf_all = imf_var(M,p,A0_opt,B_hat,ones(M,1),t_proj);
+display([text,'The portion of variance of GDP due to monetary policy shock is:',10]);
+display(var_imf_mp(1,1)/var_imf_all(1,1));
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{createOmega.m} creates $ \Omega$ for Minnesota prior.}, label={code:createOmega}]
+function omega_d = createOmega(Dat,p,T,M,K,vc,lam)
+%% The first observation is given and the rest of observation up to the
+% end of current window are for prediction as stated in the problem
+% statement
+% Follow Hamilton 1994 to get the MLE for variance
+sum1 = sum(Dat(p:p+T-1,:),1);%sum_1^T y_(t-1)
+sum2 = sum(Dat(p+1:p+T,:),1);%sum_1^T y_(t)
+sum3 = sum(Dat(p:p+T-1,:).^2,1);%sum_1^T y_(t-1)^2
+sum4 = sum(Dat(p+1:p+T,:).^2,1);%sum_1^T y_(t)^2
+sum5 = sum(Dat(p+1:p+T,:).*Dat(p:p+T-1,:),1);%sum_1^T y_(t)y_(t-1)
+sigma2_hat = zeros(1,M);
+for m = 1:M
+    c_phi_hat = [T,sum1(m);sum1(m),sum3(m)]\[sum2(m);sum5(m)];% c_phi_hat = [c_hat,phi_hat]
+    %temp_sum = 0;
+    sigma2_hat(m) = 1.0/(T)*(sum4(m)+c_phi_hat(2)^2*sum3(m)+2*c_phi_hat(1)*c_phi_hat(2)*sum1(m)...
+                    -2*c_phi_hat(1)*sum2(m)-2*c_phi_hat(2)*sum5(m))+c_phi_hat(1)^2;
+end
+omega_d = zeros(1,K);
+omega_d(1) = [vc/lam^2];
+for j = 1:p
+    omega_d(1+(j-1)*M+1:1+j*M) = (sigma2_hat*j^2).^(-1);
+end
+omega_d = lam^2 * omega_d;
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{createXY.m} constructs matrix $X$ and $Y$ with sum-of-coefficient prior with dummy observations.}, label={code:createXY.m}]
+function [X,Y] = createXY(Dat,p,T,M,K,mu)
+%Assemble the ordinary Y
+Y = Dat((p+1:p+T),:);
+%Assemble the ordinary X
+X = zeros(T,K);% a T*K matrix
+for j = 1:T
+    X(j,:) = [1,reshape(Dat((j+p-1:-1:j),:)',1,K-1)];% have to transpose because the reshape function operate in column
+end
+
+%Add sum-of-coefficient
+Y_bar = diag(mu*mean(Dat(1:p,:),1));
+Y = [Y;Y_bar];
+Xplus = [zeros(M,1),repmat(diag(mu*mean(Dat(1:p,:),1)),[1 p])];    
+X= [X;Xplus]; % stack x at the bottom
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{findGlobalOpt.m} uses multi-starts in global optimization toolbox to find somewhat ``global" optimal value for matrix $A_0$ by maximizing the marginal posterior \ref{eqn:post_A0}}, label={code:findGlobalOpt}]
+function [a0_opt, manymin] = findGlobalOpt(objFunc,solver,options,multistarts,a0_0,filename)
+%% Use Global Optimization Toolbox in Matlab to find a "global" optimal of
+%the objective function.
+%Input: 
+    %objFunc: The objFunc has to have defined the variables and parameters
+%========================================
+    %Input:
+        %lam: lambda;
+        %A0: The A_0 matrix (M-by-M);
+        %X: X matrix ((T+M)-by-K);
+        %Y: Y matrix ((T+M)-by-M);
+        %d_phi: Diagonal entries for square root of Phi matrix (K entries)
+        %b_hat: Matrix form for the mean of prior for beta (which is a vector form of B);
+        %M: Dimension of vector variables;
+        %T: Time periods for forcasting;
+        %p: The maximum lag;
+    %Output:
+        %logfval: The log posterior function value;
+%========================================
+    %solver: The specified solver. Here use 'fminunc';
+    %options: Options for the solver (optimoptions(@fminunc,'Algorithm','quasi-newton','Display', 'off')).
+    %          Notice that here we are necessarily requiring gradient of objFunc
+    %multistarts: Number of multistart;
+    %a0_0: The initial guess for a_0;
+    %filename: The file name for writing the resutls
+%Output:
+    %a0_opt: The optimal a0 with the optimal function value.
+%% ==========================================================================
+%Create an optimization problem
+prob = createOptimProblem(solver,'objective',objFunc,'x0',a0_0,'options',options);
+%Number of multistart
+MS = MultiStart;
+%Run multistarts times of this problem
+[x,f,~,~,manymin] = run(MS,prob,multistarts);
+%Write to a file and get the optimal value for free variables
+csvwrite(filename,x);
+a0_opt = x;
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{IMF.m} constructs impulse response functions using companion form.}, label={code:IMF}]
+function imf = IMF(T,M,p,A0,B_hat,mp_shock,time_range)
+%% Use companion form to get the impulse response function interms of time.
+%Input:
+%   T: The time horizon to investigate the impulse response;
+%   M: Dimension of vector variable;
+%   p: The maximum time lag;
+%   A0: The MAP of A0 matrix (M-by-M);
+%   B_hat: The MAP of B matrix (K-by-M);
+%   mp_shock: To specify which shock is in interest (M-by-1);
+%Output:
+%   imf: Impulse response function in terms of time periods (T-by-M);
+
+% Phi is a K-by-K matrix
+Phi = sparse([B_hat(2:end,:)';eye((p-1)*M,p*M)]);
+% Big shock column: K-by-1
+MP_shock = sparse([mp_shock;zeros((p-1)*M,1)]);
+% Big matrix pre-multiplied on shocks
+G = sparse(zeros(p*M,p*M));
+G(1:M,1:M) = A0\eye(M);
+
+imf = zeros(T,M);
+temp = G*MP_shock;
+for i = 1:T
+   temp = Phi*temp;
+   imf(i,:) = temp(1:M)';
+end
+imf = [(time_range(1):(time_range(2)-time_range(1))/(T-1):time_range(2))',imf];
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{initPoint.m} returns initial guess for global optimization executed by \textit{findGlobalOpt.m}.}, label={code:initPoint}]
+function a0_0 = initPoint(X,Y,B_hat,b_hat,omega_d)
+%Residual;
+eps_hat = Y - X*B_hat;
+%Another part;
+temp1 = (diag(omega_d.^0.5)\(B_hat-b_hat));
+%S_hat
+S_hat = eps_hat'*eps_hat+temp1'*temp1;
+%Cholesky decomposition on S_hat'*S_hat to get the initial A0 and then
+%return the vector version of it.
+A0_0 = chol(S_hat'*S_hat,'upper');
+a0_0 = mat2vec(A0_0);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{logPostA0.m} calculates log-posterior of $A_0$.}, label={code:logPostA0}]
+function logfval = logPostA0(a0,X,Y,d_phi,b_hat,B_hat,M,T,lam)
+%% Calculate the log posterior for A_0 and return the B_hat
+%Input:
+%lam: lambda;
+%A0: The A_0 matrix (M-by-M);
+%X: X matrix ((T+M)-by-K);
+%Y: Y matrix ((T+M)-by-M);
+%d_phi: Diagonal entries for square root of Phi matrix (K entries)
+%b_hat: Matrix form for the mean of prior for beta (which is a vector form of B);
+%B_hat: Matrix of coefficient (K-by-M);
+%M: Dimension of vector variables;
+%T: Time periods for forcasting;
+%p: The maximum lag;
+%Output:
+%logfval: The log posterior function value;
+
+%% ==========================================================================
+%MAP for B;
+% B_hat = (lam^2*(X'*X)+diag(d_phi.^(-1)))\(lam^2*X'*Y + diag(d_phi.^(-1))*b_hat);
+%Residual;
+eps_hat = Y - X*B_hat;
+%Assemble the A0 from a0
+A0 = vec2mat(a0,M);
+%A simple way to calculate the arguments inside exponant;
+% temp1 = eps_hat*A0';
+% temp2 = lam^(-1)*(diag(d_phi.^0.5)\(B_hat-b_hat))*A0';
+%The trace of a matrix times its transpose is just the Frobenius norm of
+%that matrix;
+%logfval = (T+M)*log(det(A0))-0.5*(sum(sum(temp1.^2))+sum(sum(temp2.^2))); %equivalent form
+logfval = (T+M)*log(det(A0))-0.5*trace((eps_hat'*eps_hat+lam^(-2)*(B_hat-b_hat)'/diag(d_phi)*(B_hat-b_hat))*(A0'*A0));
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{mat2vec.m} transfers a vector $a_0$ of free variables in matrix $A_0$ into a matrix $A_0$.}, label={code:mat2vec}]
+function a = mat2vec(A)
+[n,m] = size(A);
+A = reshape(A,n*m,1);
+a = A([1,2,3,4,5,8,9,10,11,15,16,22,28,29,30,34,35,36]);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{Metropolis\textunderscore alg.m} implements MCMC using Metropolis algorithm.}, label={code:Metropolis_alg}]
+function [ar,trace_dat] = Metropolis_alg(Num,a0_0,C,Hessian,S_dhat,T,M,text)
+
+if (issymmetric(Hessian)~=1)
+    Hessian = (Hessian+Hessian')/2;
+end
+delta = min(eig(Hessian));
+if (delta < 0)
+    Hessian = Hessian -2*delta*eye(size(Hessian,1));
+end
+
+V = C^2*inv(Hessian);
+trace_dat = zeros(Num,length(a0_0));
+accept = 0;
+for i = 1:Num
+    A0_0 = vec2mat(a0_0,M);
+    a0_new = mvnrnd(a0_0,V);
+    A0_new = vec2mat(a0_new,M);
+    lgp_0 = (T+M)*log(det(A0_0))-0.5*trace(S_dhat*(A0_0'*A0_0));
+    lgp_new = (T+M)*log(det(A0_new))-0.5*trace(S_dhat*(A0_new'*A0_new));
+    rate = exp(lgp_new-lgp_0);
+    if rate >= 1
+        a0_0 = a0_new;
+        accept = accept + 1;
+    else
+        u = rand;
+        if u <= rate
+            a0_0 = a0_new;
+            accept = accept + 1;
+        end
+    end
+    trace_dat(i,:) = a0_0';
+end
+ar = accept / Num;
+csvwrite([text,'trace_plot.csv'],trace_dat);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{plot\textunderscore all\textunderscore TS} plots impulse response functions (w.r.t $t$) into subplots.}, label={code:plot_all_TS}]
+function h=plot_all_TS(TSdat,patten,axlmt)
+    subplot(3,2,4);
+    hold on;
+    box on;
+    grid on;
+    plot(abs(TSdat(:,1)),TSdat(:,2),patten);
+    axis(axlmt)
+    % legend('Observed Data','DC Prediction')
+    %legend(h,text)
+    title('Y')
+
+    subplot(3,2,5);
+    hold on;
+    box on;
+    grid on;
+    plot(abs(TSdat(:,1)),TSdat(:,3),patten);
+    axis(axlmt)
+    % legend('Observed Data','DC Prediction')
+    title('P')
+    
+    subplot(3,2,6);
+    hold on;
+    box on;
+    grid on;
+    plot(abs(TSdat(:,1)),TSdat(:,4),patten);%,xt,rt2.predgdp,'-.m',xt,rt3.predgdp,'--c',xt,rt4.predgdp,':r')
+    axis(axlmt)
+    % legend('Observed Data','DC Prediction')
+    title('U')
+    
+    subplot(3,2,1);
+    hold on;
+    box on;
+    grid on;
+    plot(abs(TSdat(:,1)),TSdat(:,5),patten);%,xt,rt2.predgdp,'-.m',xt,rt3.predgdp,'--c',xt,rt4.predgdp,':r')
+    axis(axlmt)
+    % legend('Observed Data','DC Prediction')
+    title('Pcom')
+    
+    subplot(3,2,2);
+    hold on;
+    box on;
+    grid on;
+    plot(abs(TSdat(:,1)),TSdat(:,6),patten);%,xt,rt2.predgdp,'-.m',xt,rt3.predgdp,'--c',xt,rt4.predgdp,':r')
+    axis(axlmt)
+    % legend('Observed Data','DC Prediction')
+    title('M2')
+    
+    subplot(3,2,3);
+    hold on;
+    box on;
+    grid on;
+    h=plot(abs(TSdat(:,1)),TSdat(:,7),patten);%,xt,rt2.predgdp,'-.m',xt,rt3.predgdp,'--c',xt,rt4.predgdp,':r')
+    axis(axlmt)
+    % legend('Observed Data','DC Prediction')
+    title('R')
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{plot\textunderscore trace.m} plots trace plots of free variables in vector $a_0$.}, label={code:plot_trace}]
+function h=plot_trace(trace_dat,n,m,patten)
+
+[Num,~] = size(trace_dat);
+
+for i = 1:(n*m)
+
+subplot(n,m,i);
+hold on;
+box on;
+h=plot(1:Num,trace_dat(:,i),patten);
+% legend('Observed Data','DC Prediction')
+%legend(h,text)
+title(['Free variable ',num2str(i)]);
+end
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{vec2mat.m} transfers the free variables in $A_0$ into a vector $a_0$.}, label={code:vec2mat}]
+function A = vec2mat(a,M)
+% A = zeros(M^2,1);
+% A([1,7,13,19,25,8,14,20,26,15,21,22,23,29,35,24,30,36]) = a;
+% A = reshape(A,M,M);
+% A = A';
+
+A = zeros(M^2,1);
+A([1,2,3,4,5,8,9,10,11,15,16,22,28,29,30,34,35,36]) = a;
+A = reshape(A,M,M);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab ,caption={\textit{imf\textunderscore var.m} calculates the IMF variance based on shock given.}, label={code:imf_var}]
+function IMF_Errbd(Dat,p,lam,M,T,K,vc,mu,Num,C,ir_t,mp_shock,multistarts,t_proj,text)
+
+%clear();
+%Load the data set
+% Dat = xlsread('SZdata.xlsx');
+% Dat = Dat(:,2:7);
+% %Set constants
+% p = 13;
+% lam = 0.2;
+% M = 6;
+% T = size(Dat,1)-p;
+% K = M*p+1;
+% vc = 10^6;
+% mu = 1;
+% Num = 100000;%Number of MCMC simulation
+% C = 0.6;%Scaling parameter for the proposal distribution variation
+% ir_t = 48;
+% mp_shock = zeros(M,1);
+% mp_shock(6) = 1;
+% multistarts = 2500;
+% t_proj = 36;
+%Create matrix of X and Y combining observations and dummy observations
+[X,Y] = createXY(Dat,p,T,M,K,mu);
+
+%Estimate elements of Omega
+omega_d = createOmega(Dat,p,T,M,K,vc,lam);
+
+%Estimate the MAP for B and constant for b_hat in prior
+b_hat = [zeros(M,1),eye(M,M*p)]';
+B_hat = ((X'*X)+diag(omega_d.^(-1)))\(X'*Y + diag(omega_d.^(-1))*b_hat);
+csvwrite([text,'B_hat_mine.csv'],B_hat);
+
+%% Optimize posterior for A_0
+func = @(a0)-logPostA0(a0,X,Y,omega_d/lam^2,b_hat,B_hat,M,T,lam);
+solver = 'fminunc';
+options = optimoptions(@fminunc,'Algorithm','quasi-newton','Display', 'off');
+%Solve once and obtain hessian matrix for the proposal distribution in
+%Metropolis alg
+a0_0 = initPoint(X,Y,B_hat,b_hat,omega_d);%a0_0 is a column vector
+[a0_init,post_val_init,exitflag,output_init,grad_init,Hessian]=...
+    fminunc(func,a0_0,options);
+
+%Use global optimization toolbox to find "global" optimial for the
+%posterior of A_0
+tic;
+filename = 'p1-1.csv';
+[a0_opt,manymin] = findGlobalOpt(func,solver,options,multistarts,a0_0,filename);
+A0_opt = vec2mat(a0_opt,M);
+csvwrite([text,'A0_opt_mine.csv'],A0_opt);
+toc;
+
+%% Construct Impulse Response Function
+% Monetary policy shock
+time_range = [1,ir_t];
+tic;
+%Sign constraint, so that the one positive monetary shock will result in
+%immediate decrease of the federal funds rate (R)
+imd_resp = A0_opt\mp_shock;
+sign_con = sign((imd_resp(M)));
+imf = sign_con*IMF(ir_t,M,p,A0_opt,B_hat,mp_shock,time_range);
+toc;
+h_errbd = figure(1);
+hold on;
+box on;
+annotation('textbox', [0 0.9 1 0.1], ...
+    'String', [text, 'Error bands of impulse response functions'], ...
+    'EdgeColor', 'none', ...
+    'HorizontalAlignment', 'center',...
+    'FontSize',20);
+legendinfo{1}=['Impulse response to Monetary Policy Shock'];
+handle(1) = plot_all_TS(imf,'-k',[time_range,-inf,inf]);
+%Check the results and they are close
+
+%% Metropolis algorithm and error bands
+%acceptance rate
+eps_hat = Y - X*B_hat;
+S_dhat = eps_hat'*eps_hat+(B_hat-b_hat)'/diag(omega_d)*(B_hat-b_hat);
+tic;
+[ar,trace_dat] = Metropolis_alg(Num,a0_0,C,Hessian,S_dhat,T,M);%Draw A0 from its marginal posterior distribution
+toc;
+imf_MCMC = zeros(ir_t,M,Num);%Store the IMF for each MCMC draw 
+tic;
+for i = 1:Num
+    A0_temp = vec2mat(trace_dat(i,:)',M);
+    inv_A0_temp = inv(A0_temp);
+    imd_resp = inv_A0_temp*mp_shock;%Sign constraint as before
+    sign_con = sign(imd_resp(M));
+    V_temp = kron(inv_A0_temp*inv_A0_temp',inv(X'*X+diag(omega_d.^(-1))));
+    B_new = reshape(mvnrnd(reshape(B_hat,K*M,1),V_temp),K,M);%Draw new B based on each draw of A0
+    imf_temp = sign_con*IMF(ir_t,M,p,A0_temp,B_new,mp_shock,time_range);%Calculate IMF for this sample of A0 and B
+    imf_MCMC(:,:,i) = imf_temp(:,2:end);
+end
+err_bd = quantile(imf_MCMC,[0.05,0.95,0.16,0.84],3);%Empirical quantile for each IMF
+legendinfo{2} = ['%5 error bound'];
+handle(2) = plot_all_TS([(1:ir_t)',err_bd(:,:,1)],'b-.',[time_range,-inf,inf]);
+legendinfo{3} = ['%95 error bound'];
+handle(3) = plot_all_TS([(1:ir_t)',err_bd(:,:,2)],'r-.',[time_range,-inf,inf]);
+legendinfo{4} = ['%16 error bound'];
+handle(4) = plot_all_TS([(1:ir_t)',err_bd(:,:,3)],'b.',[time_range,-inf,inf]);
+legendinfo{5} = ['%84 error bound'];
+handle(5) = plot_all_TS([(1:ir_t)',err_bd(:,:,4)],'r.',[time_range,-inf,inf]);
+legend(handle,legendinfo,'Location','northeast');
+toc;
+saveas(h_errbd,[text,'Error_Bands'],'jpg');
+saveas(h_errbd,[text,'Error_Bands'],'fig');
+
+%Trace plot
+tic;
+h_trace_plot = figure(2);
+hold on;
+box on;
+annotation('textbox', [0 0.9 1 0.1], ...
+    'String', [text,'Trace plots for free variables'], ...
+    'EdgeColor', 'none', ...
+    'HorizontalAlignment', 'center',...
+    'FontSize',20);
+handle1 = plot_trace(trace_dat,6,3,'b-');
+toc;
+saveas(h_trace_plot,[text,'Trace_plots'],'jpg');
+saveas(h_trace_plot,[text,'Trace_plots'],'fig');
+
+%% Variance Decomposition
+var_imf_mp = imf_var(M,p,A0_opt,B_hat,mp_shock,t_proj);
+var_imf_all = imf_var(M,p,A0_opt,B_hat,ones(M,1),t_proj);
+display([text,'The portion of variance of GDP due to monetary policy shock is:',10]);
+display(var_imf_mp(1,1)/var_imf_all(1,1));
+end
+\end{lstlisting}
+
+\end{appendices}
+\end{document}  

@@ -1,0 +1,1 @@
+function A0 = logPostA0() 
